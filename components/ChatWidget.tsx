@@ -24,22 +24,22 @@ export default function ChatWidget() {
   };
 
   return (
-    <div className="fixed right-0 top-0 w-1/4 h-full bg-[#0d0d0d] border-l border-[#8f00ff] text-[#FF00F6] font-mono flex flex-col z-50">
-      <div className="p-4 font-bold text-lg border-b border-[#8f00ff]">🤖 CyberGPT 客服</div>
-      <div className="flex-1 p-4 overflow-y-auto space-y-2 text-sm bg-[#0a0a0a]">
+    <div className="fixed right-0 top-0 w-1/4 h-full bg-black/70 backdrop-blur-md border-l border-[#00f5d4] text-[#00f5d4] font-mono flex flex-col z-50">
+      <div className="p-4 font-bold text-lg border-b border-[#00f5d4]">🤖 CyberGPT 客服</div>
+      <div className="flex-1 p-4 overflow-y-auto space-y-2 text-sm">
         {history.map((msg, i) => (
           <div key={i}>
             <b>{msg.role === 'user' ? '你' : 'GPT'}：</b> {msg.content}
           </div>
         ))}
-        {loading && <div className="italic text-gray-400">GPT 输入中...</div>}
+        {loading && <div className="italic text-gray-400">GPT 正在输入...</div>}
       </div>
-      <div className="p-3 border-t border-[#8f00ff]">
+      <div className="p-3 border-t border-[#00f5d4]">
         <input
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && sendMessage()}
-          className="w-full bg-black text-[#FF00F6] border border-[#FF00F6] rounded-full px-4 py-2 placeholder-[#FF00F688] focus:outline-none"
+          className="w-full bg-black text-[#00f5d4] border border-[#00f5d4] rounded-full px-4 py-2 placeholder-[#00f5d488] focus:outline-none"
           placeholder="请输入问题..."
         />
       </div>
